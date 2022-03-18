@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'yangiliklar.apps.YangiliklarConfig',
-    'login.apps.LoginConfig' 
+    'login.apps.LoginConfig',
+    'projects.apps.ProjectsConfig'
 ]
 
 MIDDLEWARE = [
