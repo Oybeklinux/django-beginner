@@ -1,12 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from .db import news
 # Create your views here.
 def yangiliklar(request):
     return render(request, "yangiliklar/news.html")
 
-def about(request):
-    return render(request, "about.html")
 
 def ozgartirish(request):
      return render(request, "yangiliklar/news_edit.html")
@@ -22,3 +20,21 @@ def yangilik(request, id):
         return HttpResponse( yangilklar_[id-1])
     else:
         return HttpResponse("Bunday yangilik mavjud emas")
+
+class Talaba:
+
+
+    def __init__(self) -> None:
+        self.name = "Anvar"
+        self.age = 45
+
+def ozgaruvchi_bilan_ishlash(request, son):
+    
+    context = {
+        "sarlavha": "O'zgaruvchilar bilan ishlash",
+        "lst": news,        
+       
+        }
+    return render(request, "yangiliklar/test.html", context )
+
+
