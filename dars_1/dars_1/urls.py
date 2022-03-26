@@ -20,5 +20,6 @@ from yangiliklar.views import *
 # 127.0.0.1:8000/
 urlpatterns = [
     path('admin/', admin.site.urls),    
-    path("", include("yangiliklar.urls"))
+    path("", include("yangiliklar.urls")),
+    path("", include("projects.urls"))
 ]

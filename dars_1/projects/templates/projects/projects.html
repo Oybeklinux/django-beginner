@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+
+
+
+{% block content %}
+<h1>Loyihalar</h1>
+
+<ul>
+    {% for p in projects %}
+
+    <li><a href="{% url 'project' p.id %}">{{p.title}}</a></li>
+
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
