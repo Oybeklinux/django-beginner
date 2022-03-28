@@ -1,4 +1,4 @@
-"""dars_1 URL Configuration
+"""portfolio URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -15,11 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from yangiliklar.views import *
 
 # 127.0.0.1:8000/
 urlpatterns = [
-    path('admin/', admin.site.urls),    
-    path("", include("yangiliklar.urls")),
+    path('admin/', admin.site.urls),
     path("", include("projects.urls"))
 ]
