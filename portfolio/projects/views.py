@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import *
+from .forms import ProjectForm
 # Create your views here.
 
 
@@ -24,3 +25,16 @@ def project(request, id):
         "tags": tags
     }
     return render(request, "projects/project.html", context)
+
+
+def project_add(request):
+    if request.method == 'POST':
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('projects')    
+    form = ProjectForm()
+    context = {
+        "form": form
+    }
+    return render(request, "projects/project_add.html", context)

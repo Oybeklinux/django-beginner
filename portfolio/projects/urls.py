@@ -5,5 +5,6 @@ from .views import *
 urlpatterns = [
     path("", projects, name="projects"),
     path("projects/", projects, name="projects"),
+    path("project_add/", project_add, name="project_add"),
     path("projects/<uuid:id>", project,  name="project"),
 ]

@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+
+
+{% block content %}
+<style>
+    input,
+    textarea,
+    select {
+        width: 100%
+    }
+</style>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table width="700">
+        {% for f in form %}
+        <tr>
+            <td>{{f.label}}</td>
+            <td> {{f}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <input type="submit" value="Saqlash" style="width: 200px">
+</form>
+{% endblock %}
