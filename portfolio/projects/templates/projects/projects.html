@@ -12,6 +12,7 @@
         <th>Ovozlar nisbati</th>
         <th>Sanasi</th>
         <th></th>
+        <th></th>
     </tr>
 
     {% for review in reviews_m %}
@@ -21,6 +22,7 @@
         <td>{{review.project.vote_ratio}}</td>
         <td>{{review.project.created}}</td>
         <th><a href="{% url 'project' review.project.id %}">Ko'rish</a></th>
+        <th><a href="{% url 'project_edit' review.project.id %}">O'zgartirish</a></th>
     </tr>
     {% endfor %}
 </table>
