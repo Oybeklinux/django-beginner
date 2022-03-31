@@ -5,14 +5,25 @@
 {% block content %}
 
 <h1>Loyiha</h1>
+<table cellpadding="10" width="800" align="center">
+    <tr>
+        <td>Nomi:</td>
+        <td>{{project.title}}</td>
+    </tr>
+    <tr>
+        <td>Texnologiyalari:</td>
+        <td>
+            <ul>
+                {% for tag in tags %}
+                <li>{{tag.name}}</li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Loyiha haqida</td>
+        <td>{{project.description}}</td>
+    </tr>
+</table>
 
-<br>
-Nomi: {{project.title}}
-<br>
-Texnologiyalari:
-<ul>
-    {% for tag in tags %}
-    <li>{{tag.name}}</li>
-    {% endfor %}
-</ul>
 {% endblock %}

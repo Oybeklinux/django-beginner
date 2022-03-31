@@ -4,9 +4,14 @@ from .models import *
 
 
 def projects(request):
-    projects = Project.objects.all()
+
+    reviews_p = Review.objects.filter(value="+")
+    reviews_m = Review.objects.filter(value="-")
+    projects = Project.objects.filter(project_review__isnull=True)
     context = {
-        "projects": projects
+        "projects": projects,
+        "reviews_p": reviews_p,
+        "reviews_m": reviews_m
     }
     return render(request, "projects/projects.html", context)
 

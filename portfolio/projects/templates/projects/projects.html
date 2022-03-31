@@ -3,15 +3,69 @@
 
 
 {% block content %}
-<h1>Loyihalar</h1>
+<h2>Salbiy baho berilgan loyihalar</h2>
+<table cellpadding="10">
+    <tr>
+        <th>Nomi</th>
+        <th>Ovozlar soni</th>
+        <th>Ovozlar nisbati</th>
+        <th>Sanasi</th>
+        <th></th>
+    </tr>
 
-<ul>
-    {% for p in projects %}
-
-    <li><a href="{% url 'project' p.id %}">{{p.title}}</a></li>
-
+    {% for review in reviews_m %}
+    <tr>
+        <td>{{review.project.title}}</td>
+        <td>{{review.project.vote_count}}</td>
+        <td>{{review.project.vote_ratio}}</td>
+        <td>{{review.project.created}}</td>
+        <th><a href="{% url 'project' review.project.id %}">Ko'rish</a></th>
+    </tr>
     {% endfor %}
-</ul>
+</table>
+
+<h2>Ijobiy baho berilgan loyihalar</h2>
+<table cellpadding="10">
+    <tr>
+        <th>Nomi</th>
+        <th>Ovozlar soni</th>
+        <th>Ovozlar nisbati</th>
+        <th>Sanasi</th>
+        <th></th>
+    </tr>
+
+    {% for review in reviews_p %}
+    <tr>
+        <td>{{review.project.title}}</td>
+        <td>{{review.project.vote_count}}</td>
+        <td>{{review.project.vote_ratio}}</td>
+        <td>{{review.project.created}}</td>
+        <th><a href="{% url 'project' review.project.id %}">Ko'rish</a></th>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<h2>Baho berilmagan loyihalar</h2>
+<table cellpadding="10">
+    <tr>
+        <th>Nomi</th>
+        <th>Ovozlar soni</th>
+        <th>Ovozlar nisbati</th>
+        <th>Sanasi</th>
+        <th></th>
+    </tr>
+
+    {% for project in projects %}
+    <tr>
+        <td>{{project.title}}</td>
+        <td>{{project.vote_count}}</td>
+        <td>{{project.vote_ratio}}</td>
+        <td>{{project.created}}</td>
+        <th><a href="{% url 'project' project.id %}">Ko'rish</a></th>
+    </tr>
+    {% endfor %}
+</table>
 
 
 {% endblock %}
