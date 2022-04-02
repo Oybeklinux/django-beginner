@@ -13,6 +13,7 @@
         <th>Sanasi</th>
         <th></th>
         <th></th>
+        <th></th>
     </tr>
 
     {% for review in reviews_m %}
@@ -23,6 +24,7 @@
         <td>{{review.project.created}}</td>
         <th><a href="{% url 'project' review.project.id %}">Ko'rish</a></th>
         <th><a href="{% url 'project_edit' review.project.id %}">O'zgartirish</a></th>
+        <th><a href="{% url 'project_delete' review.project.id %}">O'chirish</a></th>
     </tr>
     {% endfor %}
 </table>

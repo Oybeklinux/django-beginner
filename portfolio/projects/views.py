@@ -53,3 +53,8 @@ def project_edit(request, id):
         "form": form
     }
     return render(request, "projects/project_add.html", context)
+
+def project_delete(request, id):
+    project = Project.objects.get(id=id)
+    project.delete()
+    return redirect('projects')
