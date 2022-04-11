@@ -1,3 +1,4 @@
+from email.policy import default
 import uuid
 from django.db import models
 
@@ -7,6 +8,7 @@ from django.db import models
 class Project(models.Model):
     title = models.CharField(max_length=300)
     description = models.TextField(null=True, blank=True) #default=""
+    image = models.ImageField(default="default.png")
     demo_link = models.CharField(max_length=400, null=True, blank=True)
     source_link = models.CharField(max_length=400, null=True, blank=True)
     vote_count = models.IntegerField(default=0)
