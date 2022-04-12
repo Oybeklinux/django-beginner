@@ -1,3 +1,22 @@
 {% load static %}
-<img src="{% static 'images/logo.png' %}" alt="" width="300">
-<h1>Header</h1>
+<header class="header">
+    <div class="container container--narrow">
+        <a href="{% url 'projects' %}" class="header__logo">
+            <img src="{% static 'images/logo.png' %}" alt="DevSearch Logo" />
+        </a>
+        <nav class="header__nav">
+            <input type="checkbox" id="responsive-menu" />
+            <label for="responsive-menu" class="toggle-menu">
+                <span>Menu</span>
+                <div class="toggle-menu__lines"></div>
+            </label>
+            <ul class="header__menu">
+                <li class="header__menuItem"><a href="#">Bitiruvchilar</a></li>
+                <li class="header__menuItem"><a href="#">Loyihalar</a></li>
+
+                <li class="header__menuItem"><a href="#">Mening sahifam</a></li>
+                <li class="header__menuItem"><a href="#" class="btn btn--sub">Kirish/Ro'yxatdan o'tish</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

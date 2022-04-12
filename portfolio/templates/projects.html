@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <!-- Icon - IconMonster -->
+  <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" />
+  <!-- Mumble UI -->
+  <link rel="stylesheet" href="uikit/styles/uikit.css" />
+  <!-- Dev Search UI -->
+  <link rel="stylesheet" href="styles/app.css" />
+
+  <title>Bitiruvchi dasturchlarni qidirib top</title>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container container--narrow">
+      <a href="/" class="header__logo">
+        <img src="images/logo.png" alt="DevSearch Logo" />
+      </a>
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <label for="responsive-menu" class="toggle-menu">
+          <span>Menu</span>
+          <div class="toggle-menu__lines"></div>
+        </label>
+        <ul class="header__menu">
+          <li class="header__menuItem"><a href="index.html">Bitiruvchilar</a></li>
+          <li class="header__menuItem"><a href="projects.html">Loyihalar</a></li>
+
+          <li class="header__menuItem"><a href="account.html">Mening sahifam</a></li>
+          <li class="header__menuItem"><a href="login.html" class="btn btn--sub">Kirish/Ro'yxatdan o'tish</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- Main Section -->
+  <main class="projects">
+    <section class="hero-section text-center">
+      <div class="container container--narrow">
+        <div class="hero-section__box">
+          <h2> <span>Loyihalarni</span> qidirib top</h2>
+        </div>
+
+        <div class="hero-section__search">
+          <form class="form" action="#" method="get">
+            <div class="form__field">
+              <label for="formInput#search">Loyihalarni qidir </label>
+              <input class="input input--text" id="formInput#search" type="text" name="text"
+                placeholder="Loyihalar nomi bilan qidir" />
+            </div>
+
+            <input class="btn btn--sub btn--lg" type="submit" value="Qidir" />
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Search Result: DevList -->
+    <section class="projectsList">
+      <div class="container">
+        <div class="grid grid--three">
+          <div class="column">
+            <div class="card project">
+              <a href="single-project.html" class="project">
+                <img class="project__thumbnail" src="images/project-1.png" alt="project thumbnail" />
+                <div class="card__body">
+                  <h3 class="project__title">IT Academy online ta'lim tizimi</h3>
+                  <p><a class="project__author" href="profile.html">Abduvosiqov Asror</a></p>
+                  <p class="project--rating">
+                    <span style="font-weight: bold;">98%</span> Yaxshi baho (72 Ovoz)
+                  </p>
+                  <div class="project__tags">
+                    <span class="tag tag--pill tag--main">
+                      <small>Django</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>Python</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>Django Rest</small>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card project">
+              <a href="single-project.html" class="project">
+                <img class="project__thumbnail" src="images/project-2.png" alt="project thumbnail" />
+                <div class="card__body">
+                  <h3 class="project__title">ePark.uz</h3>
+                  <p><a class="project__author" href="profile.html">Malikov Diyor</a></p>
+                  <p class="project--rating">
+                    <span style="font-weight: bold;">92%</span> Yaxshi baho (62 Ovoz)
+                  </p>
+                  <div class="project__tags">
+                    <span class="tag tag--pill tag--main">
+                      <small>React</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>Javascript</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>TypeScript</small>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card project">
+              <a href="single-project.html" class="project">
+                <img class="project__thumbnail" src="images/project-3.png" alt="project thumbnail" />
+                <div class="card__body">
+                  <h3 class="project__title">ЧД - че думаеш?</h3>
+                  <p><a class="project__author" href="profile.html">Malikov Diyor</a></p>
+                  <p class="project--rating">
+                    <span style="font-weight: bold;">36%</span> Yaxshi baho (18 Ovoz)
+                  </p>
+                  <div class="project__tags">
+                    <span class="tag tag--pill tag--main">
+                      <small>NextJS</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>GraphQL</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>TypeScript</small>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card project">
+              <a href="single-project.html" class="project">
+                <img class="project__thumbnail" src="images/project-4.png" alt="project thumbnail" />
+                <div class="card__body">
+                  <h3 class="project__title">Dolina capital</h3>
+                  <p><a class="project__author" href="profile.html">Malikov Diyor</a></p>
+                  <p class="project--rating">
+                    <span style="font-weight: bold;">98%</span> Yaxshi baho (72 Ovoz)
+                  </p>
+                  <div class="project__tags">
+                    <span class="tag tag--pill tag--main">
+                      <small>NextJS</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>GraphQL</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>TypeScript</small>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card project">
+              <a href="single-project.html" class="project">
+                <img class="project__thumbnail" src="images/project-5.png" alt="project thumbnail" />
+                <div class="card__body">
+                  <h3 class="project__title">Kannas-textile</h3>
+                  <p><a class="project__author" href="profile.html">Kusherbayev Murod</a></p>
+                  <p class="project--rating">
+                    <span style="font-weight: bold;">92%</span> Yaxshi baho (62 Ovoz)
+                  </p>
+                  <div class="project__tags">
+                    <span class="tag tag--pill tag--main">
+                      <small>React</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>Javascript</small>
+                    </span>
+
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card project">
+              <a href="single-project.html" class="project">
+                <img class="project__thumbnail" src="images/project-6.png" alt="project thumbnail" />
+                <div class="card__body">
+                  <h3 class="project__title">Alimax pro</h3>
+                  <p><a class="project__author" href="profile.html">Husniddin</a></p>
+                  <p class="project--rating">
+                    <span style="font-weight: bold;">36%</span> Yaxshi baho (18 Ovoz)
+                  </p>
+                  <div class="project__tags">
+                    <span class="tag tag--pill tag--main">
+                      <small>NextJS</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>GraphQL</small>
+                    </span>
+                    <span class="tag tag--pill tag--main">
+                      <small>TypeScript</small>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="pagination">
+      <ul class="container">
+        <li><a href="#" class="btn btn--disabled">&#10094; Orqaga</a></li>
+        <li><a href="#" class="btn btn--sub">01</a></li>
+        <li><a href="#" class="btn">02</a></li>
+        <li><a href="#" class="btn">03</a></li>
+        <li><a href="#" class="btn">04</a></li>
+        <li><a href="#" class="btn">05</a></li>
+        <li><a href="#" class="btn">06</a></li>
+        <li><a href="#" class="btn">07</a></li>
+        <li><a href="#" class="btn">08</a></li>
+        <li><a href="#" class="btn">09</a></li>
+        <li><a href="#" class="btn">10</a></li>
+        <li><a href="#" class="btn">Oldinga &#10095;</a></li>
+      </ul>
+    </div>
+  </main>
+</body>
+
+</html>
