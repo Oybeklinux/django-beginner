@@ -4,27 +4,82 @@
 
 {% block content %}
 
-<h1>Loyiha</h1>
-<img src="{{project.image.url}}" alt="">
-<table cellpadding="10" width="800" align="center">
-    <tr>
-        <td>Nomi:</td>
-        <td>{{project.title}}</td>
-    </tr>
-    <tr>
-        <td>Texnologiyalari:</td>
-        <td>
-            <ul>
-                {% for tag in tags %}
-                <li>{{tag.name}}</li>
-                {% endfor %}
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td>Loyiha haqida</td>
-        <td>{{project.description}}</td>
-    </tr>
-</table>
+<main class="singleProject my-md">
+    <div class="container">
+        <div class="layout">
+            <div class="column column--1of3">
+                <h3 class="singleProject__subtitle">Qo'llanilgan</h3>
+                <div class="singleProject__toolStack">
+                    {% for tag in project.tag.all %}
+                    <span class="tag tag--pill tag--sub tag--lg">
+                        <small>{{tag}}</small>
+                    </span>
+                    {% endfor %}
+
+                </div>
+                <a class="singleProject__liveLink" href="#" target="_blank"><i class="im im-external-link"></i>Source
+                    Code
+                </a>
+            </div>
+            <div class="column column--2of3">
+                <img class="singleProject__preview" src="{{project.image.url}}" alt="portfolio thumbnail" />
+                <a href="profile.html" class="singleProject__developer">Abduvosiqov Asror</a>
+                <h2 class="singleProject__title">{{project.title}}</h2>
+                <h3 class="singleProject__subtitle">Loyiha haqida</h3>
+                <div class="singleProject__info">
+                    {{project.description}}
+                </div>
+
+                <div class="comments">
+                    <h3 class="singleProject__subtitle">Baholar</h3>
+                    <h5 class="project--rating">
+                        {{project.vote_ratio}}% Ijobiy baho ({{project.vote_count}} Ovoz)
+                    </h5>
+
+                    <form class="form" action="#" method="POST">
+                        <!-- Textarea -->
+                        <div class="form__field">
+                            <label for="formInput#textarea">Izohlar: </label>
+                            <textarea class="input input--textarea" name="message" id="formInput#textarea"
+                                placeholder="Izohni shu yerga yozing..."></textarea>
+                        </div>
+                        <input class="btn btn--sub btn--lg" type="submit" value="Izohlar" />
+                    </form>
+                    <div class="commentList">
+                        <div class="comment">
+                            <a href="profile.html">
+                                <img class="avatar avatar--md" src="images/Husniddin.png" alt="user" />
+                            </a>
+                            <div class="comment__details">
+                                <a href="profile.html" class="comment__author">Husniddin</a>
+                                <p class="comment__info">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias numquam
+                                    perferendis
+                                    mollitia minus minima exercitationem possimus ab deserunt qui, soluta iusto
+                                    doloribus eveniet
+                                    similique consequuntur ratione, dignissimos ut magni laborum quo.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <a href="profile.html">
+                                <img class="avatar avatar--md" src="images/Diyor.png" alt="user" />
+                            </a>
+                            <div class="comment__details">
+                                <a href="profile.html" class="comment__author">Malikov Diyor</a>
+                                <p class="comment__info">
+                                    Consectetur adipisicing elit. Reprehenderit alias numquam perferendis mollitia minus
+                                    minima
+                                    exercitationem possimus ab deserunt qui, ratione, dignissimos ut magni laborum quo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
 
 {% endblock %}
