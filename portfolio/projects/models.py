@@ -1,11 +1,12 @@
 from email.policy import default
 import uuid
 from django.db import models
-
+from users.models import Profil
 # Create your models here.
 
 
 class Project(models.Model):
+    user = models.ForeignKey(Profil, on_delete=models.SET_NULL, null=True, blank=True)
     title = models.CharField(max_length=300)
     description = models.TextField(null=True, blank=True) #default=""
     image = models.ImageField(default="default.png")
@@ -22,6 +23,7 @@ class Project(models.Model):
 
 
 class Review(models.Model):
+    user = models.ForeignKey(Profil, on_delete=models.SET_NULL, null=True, blank=True)
     VOTE_TYPE = (
         ("+", "Ijobiy"),
         ("-", "Salbiy")
