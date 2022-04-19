@@ -8,3 +8,10 @@ def profiles(request):
         "users": users
     }
     return render(request, 'users/profiles.html', context)
+
+def profile(request, id):
+    user = Profil.objects.get(id=id)
+    context = {
+        "user": user
+    }
+    return render(request, 'users/profile.html', context)

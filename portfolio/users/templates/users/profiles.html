@@ -30,7 +30,7 @@
                 {% for user in users %}
                 <div class="column card">
                     <div class="dev">
-                        <a href="profile.html" class="card__body">
+                        <a href="{% url 'profile' user.id %}" class="card__body">
                             <div class="dev__profile">
                                 <img class="avatar avatar--md" src="{{user.image.url}}" alt="image" />
                                 <div class="dev__meta">
