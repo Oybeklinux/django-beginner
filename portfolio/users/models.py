@@ -14,6 +14,7 @@ class Profil(models.Model):
     social_youtube = models.CharField(max_length=200, null=True, blank=True)
     social_instagram = models.CharField(max_length=200, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to="profiles", default="profiles/default_profile.webp")
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
   
 
@@ -28,3 +29,5 @@ class Skill(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
  
+    def __str__(self) -> str:
+        return str(self.name)
