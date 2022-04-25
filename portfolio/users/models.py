@@ -1,8 +1,8 @@
+import re
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save, post_delete
-from django.dispatch import Signal
+
 
 # Create your models here.
 class Profil(models.Model):
@@ -35,22 +35,7 @@ class Skill(models.Model):
     def __str__(self) -> str:
         return str(self.name)
 
-def create_profile(sender, instance, created, **kwargs):
-    user = instance
-    if created:
-        Profil.objects.create(
-            user=user
-        )
-    else:
-        profile = Profil.objects.get(user=user)
-        profile.email = user.email
-        profile.name = f"{user.first_name} {user.last_name}"
-        profile.save()
 
-def delete_user(sender, instance, **kwargs):
-    profile = instance
-    user = profile.user
-    user.delete()
 
-Signal.connect(post_save, create_profile, sender=User)
-Signal.connect(post_delete, delete_user, sender=Profil)
+# Signal.connect(post_save, create_profile, sender=User)
+# Signal.connect(post_delete, delete_user, sender=Profil)
