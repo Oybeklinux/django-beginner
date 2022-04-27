@@ -11,10 +11,13 @@ def create_profile(sender, instance, created, **kwargs):
             user=user
         )
     else:
-        profile = Profil.objects.get(user=user)
-        profile.email = user.email
-        profile.name = f"{user.first_name} {user.last_name}"
-        profile.save()
+        try:
+            profile = Profil.objects.get(user=user)
+            profile.email = user.email
+            profile.name = f"{user.first_name} {user.last_name}"
+            profile.save()
+        except:
+            pass
 
 
 @receiver(post_delete, sender=Profil)
