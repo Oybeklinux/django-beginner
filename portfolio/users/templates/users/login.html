@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="auth">
+    <div class="card">
+        <div class="auth__header text-center">
+            <a href="/">
+                <img src="{% static 'images/icon.svg' %}" alt="icon" />
+            </a>
+            <h3>Shahsiy sahifaga kirish</h3>
+            <p>Assalomu alaykum, hush kelibsiz hurmatli dasturchi</p>
+        </div>
+
+        <form action="{% url 'login' %}" method="POST" class="form auth__form">
+            {% csrf_token %}
+            <!-- Input:Email -->
+            <div class="form__field">
+                <label for="formInput#text">Login: </label>
+                <input class="input input--text" id="formInput#text" type="text" name="username"
+                    placeholder="Loginni kiriting..." />
+            </div>
+
+            <!-- Input:Password -->
+            <div class="form__field">
+                <label for="formInput#password">Parol: </label>
+                <input class="input input--password" id="formInput#passowrd" type="password" name="password"
+                    placeholder="Parolni kiriting" />
+            </div>
+            <div class="auth__actions">
+                <input class="btn btn--sub btn--lg" type="submit" value="Kirish" />
+                <a href="forgetpassword.html">Parolni unutdingizmi?</a>
+            </div>
+        </form>
+        <div class="auth__alternative">
+            <p>Shahsiy sahifangiz yo'qmi?</p>
+            <a href="signup.html">Ro'yxtdan o'tish</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

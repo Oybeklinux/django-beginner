@@ -15,7 +15,12 @@
                 <li class="header__menuItem"><a href="{% url 'projects' %}">Loyihalar</a></li>
 
                 <li class="header__menuItem"><a href="#">Mening sahifam</a></li>
-                <li class="header__menuItem"><a href="#" class="btn btn--sub">Kirish/Ro'yxatdan o'tish</a></li>
+
+                {% if request.user.is_authenticated %}
+                <li class="header__menuItem"><a href="#" class="btn btn--sub">Chiqish</a></li>
+                {% else %}
+                <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Kirish</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>
