@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<form action="{% url 'register' %}" method="POST">
+    {% csrf_token %}
+
+    <table>
+        {% for f in form %}
+
+        <tr>
+            <td>{{f.label}}</td>
+            <td>{{f}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>{{f.help_text}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <input type="submit" value="Ro'yxatdan o'tish">
+</form>
+
+{% endblock %}

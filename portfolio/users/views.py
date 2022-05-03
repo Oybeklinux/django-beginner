@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Profil
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 def profiles(request):
@@ -39,3 +40,26 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+
+def register_user(request):
+    form = UserCreationForm()
+    context = {
+        "form": form
+    }
+
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+
+            login(request, user)
+
+            print("Foydalnuvchi ro'yxatdan o'tdi")
+            return redirect('profiles')
+        else:
+            print("Foydalnuvchi ro'yxatdan o'tmadi")
+
+    return render(request, "users/register.html", context)
