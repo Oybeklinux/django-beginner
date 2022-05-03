@@ -7,7 +7,7 @@
 <div class="auth">
     <div class="card">
         <div class="auth__header text-center">
-            <a href="/">
+            <a href="{% url 'profiles' %}">
                 <img src="{% static 'images/icon.svg' %}" alt="icon" />
             </a>
             <h3>Shahsiy sahifaga kirish</h3>
@@ -36,7 +36,7 @@
         </form>
         <div class="auth__alternative">
             <p>Shahsiy sahifangiz yo'qmi?</p>
-            <a href="signup.html">Ro'yxtdan o'tish</a>
+            <a href="{% url 'register' %}">Ro'yxtdan o'tish</a>
         </div>
     </div>
 </div>

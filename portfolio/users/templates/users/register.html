@@ -9,7 +9,7 @@
 <div class="auth">
     <div class="card">
         <div class="auth__header text-center">
-            <a href="/">
+            <a href="{% url 'profiles' %}">
                 <img src="{% static 'images/icon.svg' %}" alt="icon" />
             </a>
             <h3>Account SignUp</h3>
@@ -33,7 +33,7 @@
         </form>
         <div class="auth__alternative">
             <p>Already have an Account?</p>
-            <a href="login.html">Log In</a>
+            <a href="{% url 'login' %}">Log In</a>
         </div>
     </div>
 </div>
