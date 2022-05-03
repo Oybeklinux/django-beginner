@@ -5,24 +5,37 @@
 
 
 
-<form action="{% url 'register' %}" method="POST">
-    {% csrf_token %}
 
-    <table>
-        {% for f in form %}
+<div class="auth">
+    <div class="card">
+        <div class="auth__header text-center">
+            <a href="/">
+                <img src="{% static 'images/icon.svg' %}" alt="icon" />
+            </a>
+            <h3>Account SignUp</h3>
+            <p>Create a new developer account</p>
+        </div>
 
-        <tr>
-            <td>{{f.label}}</td>
-            <td>{{f}}</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>{{f.help_text}}</td>
-        </tr>
-        {% endfor %}
-    </table>
+        <form action="{% url 'register' %}" method="POST" class="form auth__form">
+            {% csrf_token %}
+            <!-- Input:Text -->
+            {% for f in form %}
 
-    <input type="submit" value="Ro'yxatdan o'tish">
-</form>
+            <div class="form__field">
+                <label for="formInput#text">{{f.label}} </label>
+                {{f}}
+            </div>
+            {% endfor %}
+
+            <div class="auth__actions">
+                <input class="btn btn--sub btn--lg" type="submit" value="Sign  In" />
+            </div>
+        </form>
+        <div class="auth__alternative">
+            <p>Already have an Account?</p>
+            <a href="login.html">Log In</a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

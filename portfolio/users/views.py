@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Profil
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+from .forms import CustomUserCreationForm
 # Create your views here.
 
 def profiles(request):
@@ -43,13 +43,19 @@ def logout_user(request):
 
 
 def register_user(request):
-    form = UserCreationForm()
+    form = CustomUserCreationForm()
+    for f in form:
+        if f.label == "Password":
+            f.label = "Parol"
+        elif f.label == "Password confirmation":
+            f.label = "Parolni tasdiqlash"
+
     context = {
         "form": form
     }
 
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
