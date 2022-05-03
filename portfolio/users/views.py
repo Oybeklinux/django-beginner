@@ -1,7 +1,9 @@
+from email import message
 from django.shortcuts import redirect, render
 from .models import Profil
 from django.contrib.auth import authenticate, login, logout
 from .forms import CustomUserCreationForm
+from django.contrib import messages
 # Create your views here.
 
 def profiles(request):
@@ -30,15 +32,17 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, "Tizimga hush kelibsiz")
             return redirect('profiles')
         else:
-            print('Bunday login va parol mavjud emas')
+            messages.error(request, 'Bunday login va parol mavjud emas')
 
 
     return render(request, "users/login.html")
 
 def logout_user(request):
     logout(request)
+    messages.info(request, 'Tizimdan chiqdingiz')
     return redirect('login')
 
 
@@ -63,9 +67,9 @@ def register_user(request):
 
             login(request, user)
 
-            print("Foydalnuvchi ro'yxatdan o'tdi")
+            messages.success(request, "Foydalnuvchi ro'yxatdan o'tdi")
             return redirect('profiles')
         else:
-            print("Foydalnuvchi ro'yxatdan o'tmadi")
+            messages.error(request, "Foydalnuvchi ro'yxatdan o'tmadi")
 
     return render(request, "users/register.html", context)
