@@ -14,9 +14,10 @@
                 <li class="header__menuItem"><a href="{% url 'profiles' %}">Bitiruvchilar</a></li>
                 <li class="header__menuItem"><a href="{% url 'projects' %}">Loyihalar</a></li>
 
-                <li class="header__menuItem"><a href="#">Mening sahifam</a></li>
+
 
                 {% if request.user.is_authenticated %}
+                <li class="header__menuItem"><a href="{% url 'account' %}">Mening sahifam</a></li>
                 <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Chiqish</a></li>
                 {% else %}
                 <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Kirish</a></li>

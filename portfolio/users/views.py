@@ -73,3 +73,6 @@ def register_user(request):
             messages.error(request, "Foydalnuvchi ro'yxatdan o'tmadi")
 
     return render(request, "users/register.html", context)
+
+def account(request):
+    return render(request,"users/account.html")
