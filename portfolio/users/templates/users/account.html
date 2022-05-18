@@ -10,25 +10,36 @@
                     <div class="card__body dev">
                         <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-edit"></i>
                             O'zgartirish</a>
-                        <img class="avatar avatar--xl dev__avatar" src="images/Asror.png" />
-                        <h2 class="dev__name">Abduvosiqov Asror</h2>
-                        <p class="dev__title">Python va Django Dasturchi</p>
-                        <p class="dev__location">Toshkent, O'zbekiston</p>
+                        <img class="avatar avatar--xl dev__avatar" src="{{profil.image.url}}" />
+                        <h2 class="dev__name">{{profil.name}}</h2>
+                        <p class="dev__title">{{profil.info}}</p>
+                        <p class="dev__location">{{profil.location}}</p>
                         <ul class="dev__social">
+                            {% if profil.social_github %}
                             <li>
-                                <a title="Github" href="#" target="_blank"><i class="im im-github"></i></a>
+                                <a title="Github" href="{{profil.social_github}}" target="_blank"><i
+                                        class="im im-github"></i></a>
                             </li>
+                            {% endif %}
+                            {% if profil.social_facebook %}
                             <li>
-                                <a title="Facebook" href="#" target="_blank"><i class="im im-facebook"></i></a>
+                                <a title="Facebook" href="profil.social_facebook" target="_blank"><i
+                                        class="im im-facebook"></i></a>
                             </li>
+                            {% endif %}
+                            {% if profil.social_youtube %}
 
-
                             <li>
-                                <a title="Youtube" href="#" target="_blank"><i class="im im-youtube"></i></a>
+                                <a title="Youtube" href="profil.social_youtube" target="_blank"><i
+                                        class="im im-youtube"></i></a>
                             </li>
+                            {% endif %}
+                            {% if profil.social_instagram %}
                             <li>
-                                <a title="Instagram" href="#" target="_blank"><i class="im im-instagram"></i></a>
+                                <a title="Instagram" href="profil.social_instagram" target="_blank"><i
+                                        class="im im-instagram"></i></a>
                             </li>
+                            {% endif %}
                         </ul>
                         <a href="#" class="btn btn--sub btn--lg">Habar jo'nating</a>
                     </div>
@@ -38,15 +49,7 @@
                 <div class="devInfo">
                     <h3 class="devInfo__title">Men haqimda</h3>
                     <p class="devInfo__about">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex illum ipsum iusto consequatur.
-                        Totam,
-                        dolorum fugiat, debitis facere illo nostrum nesciunt maxime, deserunt enim voluptatibus modi
-                        natus velit
-                        voluptatum. Dicta eritatis exercitationem ut quos a placeat obcaecati? Architecto illum!
-                        <br />
-                        Amet consectetur adipisicing elit. Veritatis exercitationem ut quos a placeat obcaecati?
-                        Architecto
-                        illum, atque delectus nemo dolorem inventore ab facilis? Dolor placeat vel delectus ipsam ullam.
+                        {{profil.bio}}
                     </p>
                 </div>
                 <div class="settings">
@@ -56,12 +59,12 @@
                 </div>
 
                 <table class="settings__table">
+                    {% for skill in profil.skill_set.all %}
                     <tr>
                         <td class="settings__tableInfo">
-                            <h4>Python</h4>
+                            <h4>{{skill.name}}</h4>
                             <p>
-                                Consectetur adipisicing elit. Natus nam dolore aut sed vitae eos architecto unde tempore
-                                exercitationem fugiat?...
+                                {{skill.description}}
                             </p>
                         </td>
                         <td class="settings__tableActions">
@@ -72,36 +75,8 @@
                                 O'chirish</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="settings__tableInfo">
-                            <h4>Django</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, suscipit...</p>
-                        </td>
-                        <td class="settings__tableActions">
-                            <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-edit"></i>
-                                O'zgartirish</a>
-                            <a class="tag tag--pill tag--main settings__btn" href="#"><i
-                                    class="im im-x-mark-circle-o"></i>
-                                O'chirish</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="settings__tableInfo">
-                            <h4>Django Rest</h4>
-                            <p>
-                                Amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. Quod,
-                                odio Est, suscipit...
-                            </p>
-                        </td>
-                        <td class="settings__tableActions">
-                            <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-edit"></i>
-                                O'zgartirish</a>
-                            <a class="tag tag--pill tag--main settings__btn" href="#"><i
-                                    class="im im-x-mark-circle-o"></i>
-                                O'chirish</a>
-                        </td>
-                    </tr>
+                    {% endfor %}
+
                 </table>
 
                 <div class="settings">
@@ -111,15 +86,16 @@
                 </div>
 
                 <table class="settings__table">
+                    {% for project in profil.project_set.all %}
                     <tr>
                         <td class="settings__thumbnail">
-                            <a href="single-project.html"><img src="images/project-1.png" alt="Project Thumbnail" /></a>
+                            <a href="{% url 'project' project.id %}"><img src="{{project.image.url}}"
+                                    alt="Project Thumbnail" /></a>
                         </td>
                         <td class="settings__tableInfo">
-                            <a href="single-project.html">IT Academy online ta'lim tizimi</a>
+                            <a href="single-project.html">{{project.title}}</a>
                             <p>
-                                Consectetur adipisicing elit. Natus nam dolore aut sed vitae eos architecto unde tempore
-                                exercitationem fugiat?...
+                                {{project.description}}
                             </p>
                         </td>
                         <td class="settings__tableActions">
@@ -130,44 +106,8 @@
                                 O'chirish</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="settings__thumbnail">
-                            <a href="single-project.html"><img src="images/project-1.png" alt="Project Thumbnail" /></a>
-                        </td>
-                        <td class="settings__tableInfo">
-                            <a href="single-project.html">IT Academy online ta'lim tizimi</a>
-                            <p>
-                                Consectetur adipisicing elit. Natus nam dolore aut sed vitae eos architecto unde tempore
-                                exercitationem fugiat?...
-                            </p>
-                        </td>
-                        <td class="settings__tableActions">
-                            <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-edit"></i>
-                                O'zgartirish</a>
-                            <a class="tag tag--pill tag--main settings__btn" href="#"><i
-                                    class="im im-x-mark-circle-o"></i>
-                                O'chirish</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="settings__thumbnail">
-                            <a href="single-project.html"><img src="images/project-1.png" alt="Project Thumbnail" /></a>
-                        </td>
-                        <td class="settings__tableInfo">
-                            <a href="single-project.html">IT Academy online ta'lim tizimi</a>
-                            <p>
-                                Consectetur adipisicing elit. Natus nam dolore aut sed vitae eos architecto unde tempore
-                                exercitationem fugiat?...
-                            </p>
-                        </td>
-                        <td class="settings__tableActions">
-                            <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-edit"></i>
-                                O'zgartirish</a>
-                            <a class="tag tag--pill tag--main settings__btn" href="#"><i
-                                    class="im im-x-mark-circle-o"></i>
-                                O'chirish</a>
-                        </td>
-                    </tr>
+                    {% endfor %}
+
                 </table>
             </div>
         </div>

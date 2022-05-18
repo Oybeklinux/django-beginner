@@ -4,6 +4,7 @@ from .models import Profil
 from django.contrib.auth import authenticate, login, logout
 from .forms import CustomUserCreationForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def profiles(request):
@@ -74,5 +75,10 @@ def register_user(request):
 
     return render(request, "users/register.html", context)
 
+@login_required(login_url='login')
 def account(request):
-    return render(request,"users/account.html")
+    profil = request.user.profil
+    context = {
+        "profil": profil
+    }
+    return render(request,"users/account.html", context)
