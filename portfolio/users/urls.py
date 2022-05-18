@@ -8,5 +8,6 @@ urlpatterns = [
     path("register/", register_user, name="register"),
     path("logout/", logout_user, name="logout"),
     path("account/", account, name="account"),
+    path("account_edit/", account_edit, name="account_edit"),
     path("profiles/<str:id>", profile, name="profile"),
 ]

@@ -2,7 +2,7 @@ from email import message
 from django.shortcuts import redirect, render
 from .models import Profil
 from django.contrib.auth import authenticate, login, logout
-from .forms import CustomUserCreationForm
+from .forms import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -82,3 +82,18 @@ def account(request):
         "profil": profil
     }
     return render(request,"users/account.html", context)
+
+@login_required(login_url='login')
+def account_edit(request):
+    profil = request.user.profil
+    form = CustomProfilCreationForm(instance=profil)
+    if request.method == "POST":
+        form = CustomProfilCreationForm(request.POST, request.FILES, instance=profil)
+        if form.is_valid():
+            form.save()
+            return redirect('account')
+
+    context = {
+        "form": form
+    }
+    return render(request,"users/account_edit.html", context)
