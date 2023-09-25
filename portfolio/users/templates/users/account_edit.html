@@ -9,7 +9,7 @@
             <a class="backButton" href="#"><i class="im im-angle-left"></i></a>
             <br>
 
-            <form class="form" action="{% url 'account_edit' %}" method="POST">
+            <form class="form" action="{% url 'account_edit' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <!-- Input:Text -->
                 {% for f in form %}

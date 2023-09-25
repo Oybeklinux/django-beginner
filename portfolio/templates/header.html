@@ -17,7 +17,9 @@
 
 
                 {% if request.user.is_authenticated %}
+                {% if request.user.username != 'admin' %}
                 <li class="header__menuItem"><a href="{% url 'account' %}">Mening sahifam</a></li>
+                {% endif %}
                 <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Chiqish</a></li>
                 {% else %}
                 <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Kirish</a></li>
