@@ -32,7 +32,9 @@ def project_add(request):
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            project = form.save(commit=False)
+            project.user = request.user.profil
+            project.save()
             return redirect('projects')    
     form = ProjectForm()
     context = {
