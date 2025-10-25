@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import *
 from .forms import ProjectForm
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -44,14 +45,20 @@ def project_add(request):
 
 @login_required(login_url='login')
 def project_edit(request, id):
-    project = Project.objects.get(id=id)
+    profile = request.user.profil # o'zgarish
+    try:# o'zgarish
+        project = profile.project_set.get(id=id)# o'zgarish
+    except Project.DoesNotExist:# o'zgarish
+        messages.warning(request, "Faqat o'zingizga tegishli loyihanigina o'zgartira olasiz")# o'zgarish
+        return redirect('projects')# o'zgarish
+
     form = ProjectForm(instance=project)
     
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
             form.save()
-            return redirect('projects')    
+            return redirect('account')    
     
     context = {
         "form": form
@@ -60,6 +67,12 @@ def project_edit(request, id):
 
 @login_required(login_url='login')
 def project_delete(request, id):
-    project = Project.objects.get(id=id)
+    profile = request.user.profil
+    try:
+        project = profile.project_set.get(id=id)
+    except Project.DoesNotExist:
+        messages.warning(request, "Faqat o'zingizga tegishli loyihanigina o'chira olasiz")
+        return redirect('account')
+    
     project.delete()
-    return redirect('projects')
+    return redirect('account')
