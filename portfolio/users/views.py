@@ -136,3 +136,12 @@ def skill_edit(request, id):
         "form": form
     }
     return render(request, "users/skill_add.html", context)
+
+
+
+
+@login_required(login_url='login')
+def skill_delete(request, id):
+    skill = Skill.objects.get(pk=id)
+    skill.delete()
+    return redirect('account')

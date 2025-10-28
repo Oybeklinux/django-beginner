@@ -12,5 +12,6 @@ urlpatterns = [
     path("profiles/<str:id>", profile, name="profile"),
     
     path("skill_add/", skill_add, name="skill_add"),
-    path("skill_edit/<str:id>", skill_edit, name="skill_edit")
+    path("skill_edit/<str:id>", skill_edit, name="skill_edit"),
+    path("skill_delete/<str:id>", skill_delete, name="skill_delete")
 ]
