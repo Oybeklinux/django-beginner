@@ -116,3 +116,23 @@ def skill_add(request):
     }
 
     return render(request, "users/skill_add.html", context)
+
+
+@login_required(login_url='login')
+def skill_edit(request, id):
+
+    skill = Skill.objects.get(pk=id)
+
+    if request.method == "POST":
+        form = SkillForm(request.POST, instance=skill)
+        if form.is_valid():
+            skill = form.save()            
+            return redirect("account")
+
+
+    form = SkillForm(instance = skill)
+
+    context = {
+        "form": form
+    }
+    return render(request, "users/skill_add.html", context)

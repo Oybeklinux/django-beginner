@@ -10,5 +10,7 @@ urlpatterns = [
     path("account/", account, name="account"),
     path("account_edit/", account_edit, name="account_edit"),
     path("profiles/<str:id>", profile, name="profile"),
-    path("skill_add/", skill_add, name="skill_add")
+    
+    path("skill_add/", skill_add, name="skill_add"),
+    path("skill_edit/<str:id>", skill_edit, name="skill_edit")
 ]
