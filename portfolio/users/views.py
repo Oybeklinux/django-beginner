@@ -97,3 +97,22 @@ def account_edit(request):
         "form": form
     }
     return render(request,"users/account_edit.html", context)
+
+@login_required(login_url='login')
+def skill_add(request):
+
+    if request.method == "POST":
+        form = SkillForm(request.POST)
+        if form.is_valid():
+            skill = form.save(commit=False)
+            skill.user = request.user.profil
+            skill.save()
+            return redirect("account")
+        
+    form = SkillForm()
+
+    context = {
+        "form": form
+    }
+
+    return render(request, "users/skill_add.html", context)
